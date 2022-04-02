@@ -2,21 +2,36 @@ package com.epam.jonline.mod05.a05.bean;
 
 import java.io.Serializable;
 
-public class Sweet implements Serializable {
+public class PackageSweet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 4L;
 
     private String name;
-    private double weight;
     private double price;
+    private double size;
 
-
-    public Sweet() {
+    public PackageSweet() {
     }
 
-    public Sweet(String name, double weight, double price) {
+    public PackageSweet(String name, double size, double price) {
         this.name = name;
-        this.weight = weight;
+        this.size = size;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getSize() {
+        return size;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -28,27 +43,11 @@ public class Sweet implements Serializable {
         this.name = name;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = result * prime + (int) weight;
+        result = result * prime + (int) size;
         result = result * prime + (int) price;
         result = result * prime + ((name == null) ? 0 : name.hashCode());
         return result;
@@ -62,8 +61,8 @@ public class Sweet implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Sweet other = (Sweet) obj;
-        if (weight != other.weight)
+        PackageSweet other = (PackageSweet) obj;
+        if (size != other.size)
             return false;
         if (price != other.price)
             return false;
@@ -77,6 +76,6 @@ public class Sweet implements Serializable {
 
     @Override
     public String toString() {
-        return "Name: " + name + " | Weight: " + weight + "кг | Price: " + price + "руб";
+        return "Name: " + name + " | Size: " + size + "кг | Price: " + price + "руб";
     }
 }
